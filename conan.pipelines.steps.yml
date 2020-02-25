@@ -13,5 +13,5 @@ pipelines:
           inputResources:
             - name: conan_pipeline_src
           integrations:
-            - name: artifactory_eu
+            - name: registry_eu
             - name: artSecret
