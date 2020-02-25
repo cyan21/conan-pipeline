@@ -15,7 +15,7 @@ pipelines:
           integrations:
             - name: registry_eu
             - name: artSecret
-          execution:
-            onStart:
-              - printenv int_artSecret_user
-              - printenv int_artSecret_apikey
+        execution:
+          onStart:
+            - printenv int_artSecret_user
+            - printenv int_artSecret_apikey
