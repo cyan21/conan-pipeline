@@ -21,7 +21,7 @@ do
 done
 
 # install remote, profiles, global conf
-conan config install --type git -a http.sslVerify=false $config_url   
+conan config install --type git --args "-c http.sslVerify=false" $config_url   
                         
 # configure access to Artifactory 
 conan remote add $art_repo "${art_url}/api/conan/${art_repo}"
