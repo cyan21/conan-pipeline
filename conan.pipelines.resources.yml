@@ -1,0 +1,10 @@
+resources:
+  - name: conan_pipeline_src
+    type: GitRepo
+    configuration:
+      gitProvider: yann_github
+      path: cyan21/conan-pipeline
+      branches:
+        include: master 
+      buildOn:
+         commit: true
