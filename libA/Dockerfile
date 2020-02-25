@@ -10,9 +10,9 @@ ARG build_name
 ARG build_number
 ARG component
 
-WORKDIR /tmp
+#WORKDIR /tmp
 
-COPY scripts scripts/
+RUN pwd && ls -l  
 
 RUN git clone https://github.com/conan-ci-cd-training/libA.git 
 
