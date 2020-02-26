@@ -24,8 +24,5 @@ done
 conan config install profiles/
                         
 # configure access to Artifactory 
-echo "conan remote add $art_repo ${art_url}/api/conan/${art_repo}"
 conan remote add $art_repo "${art_url}/api/conan/${art_repo}"
-
-echo "conan user -p $art_apikey -r $art_repo $art_user"
 conan user -p $art_apikey -r $art_repo $art_user
