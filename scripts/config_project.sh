@@ -21,8 +21,10 @@ do
 done
 
 # install remote, profiles, global conf
-conan config install profiles/
-                        
+conan config install -sf profiles/
+                      
+conan profile list 
+
 # configure access to Artifactory 
 conan remote add $art_repo "${art_url}/api/conan/${art_repo}"
 conan user -p $art_apikey -r $art_repo $art_user
