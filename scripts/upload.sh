@@ -35,6 +35,6 @@ version=$(conan inspect . --raw version)
 
 fullurl="$art_url/$art_repo/$name/$version/$profile/conan.lock"
 
-curl -H "X-JFrog-Art-Api:${art_apikey}" -XPUT -T $lockfile_path/conan.lock "$fullurl"
+#curl -H "X-JFrog-Art-Api:${art_apikey}" -XPUT -T $lockfile_path/conan.lock "$fullurl"
 
 popd
