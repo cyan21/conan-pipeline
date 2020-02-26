@@ -5,6 +5,8 @@ pipelines:
       - name: bld_image
         type: DockerBuild
         configuration:
+          environmentVariables:
+            CONAN_REVISIONS_ENABLED: 1
           dockerFileLocation: . 
           dockerFileName: Dockerfile_libA
           dockerImageName: docker-dev-local.artifactory-eu.soleng-emea-staging.jfrog.team/build-liba
