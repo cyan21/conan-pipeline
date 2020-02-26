@@ -16,7 +16,7 @@ ENV CONAN_USER_HOME=/tmp/conan/
 WORKDIR /tmp
 
 COPY scripts scripts/  
-COPY profiles profiles/  
+COPY config config/  
 COPY src src/
 
 #install remotes, profiles, global conf
