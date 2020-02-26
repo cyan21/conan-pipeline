@@ -28,6 +28,7 @@ cd $filepath
 #conan graph lock -p ${profile} .
 
 #conan create  -l conan.lock -p $profile $args --ignore-dirty . mycompany/stable                   
-conan create -p $profile $args --ignore-dirty . mycompany/stable                   
+#conan create -p $profile $args --ignore-dirty . mycompany/stable                   
+conan create -p $profile $args . mycompany/stable                   
 
 popd
