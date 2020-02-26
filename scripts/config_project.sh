@@ -21,8 +21,7 @@ do
 done
 
 # install remote, profiles, global conf
-echo "conan config install profiles"
-conan config install profiles
+conan config install config 
                       
 conan profile list 
 
