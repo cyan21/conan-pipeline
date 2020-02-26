@@ -17,7 +17,7 @@ class LibA(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure()
+        cmake.configure(source_folder="src/libA")
         cmake.build()
         cmake.install()
 
