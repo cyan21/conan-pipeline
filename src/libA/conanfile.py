@@ -10,10 +10,10 @@ class LibA(ConanFile):
 
     generators = "cmake"
 
-    scm = {"type": "git",
-           "subfolder": "src/libA",
-           "url": "https://github.com/cyan21/conan-pipeline.git",
-           "revision": "auto"}
+#    scm = {"type": "git",
+#           "subfolder": "src/libA",
+#           "url": "https://github.com/cyan21/conan-pipeline.git",
+#           "revision": "auto"}
 
     def build(self):
         cmake = CMake(self)
