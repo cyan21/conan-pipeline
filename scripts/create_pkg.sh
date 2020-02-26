@@ -27,8 +27,8 @@ cd $filepath
 # get dependency tree with versions
 #conan graph lock -p ${profile} .
 
-#conan create  -l conan.lock -p $profile $args --ignore-dirty . mycompany/stable
 conan profile update settings.compiler.libcxx=libstdc++11 $profile 
-conan create -p $profile $args --ignore-dirty . mycompany/stable                   
+conan create  -l conan.lock -p $profile $args --ignore-dirty . mycompany/stable
+#conan create -p $profile $args --ignore-dirty . mycompany/stable                   
 
 popd

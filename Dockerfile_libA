@@ -12,7 +12,7 @@ ARG component
 
 ENV CONAN_REVISIONS_ENABLED=1 
 ENV CONAN_USER_HOME=/tmp/conan/
-ENV CONAN_LOGGING_LEVEL=10
+#ENV CONAN_LOGGING_LEVEL=10
 
 WORKDIR /tmp
 
@@ -26,8 +26,6 @@ RUN whoami
 RUN ./scripts/config_project.sh -c $cfg_repo -a $artifactory -u $ci_user -k $apikey -r $art_repo
 
 RUN git clone https://github.com/conan-ci-cd-training/libA.git 
-
-RUN conan search
 
 RUN scripts/create_pkg.sh -p "conanio-gcc7" -f $component
 
