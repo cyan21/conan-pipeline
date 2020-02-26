@@ -25,8 +25,10 @@ pushd .
 cd $filepath 
 
 # get dependency tree with versions
-conan graph lock -p ${profile} .
+#conan graph lock -p ${profile} .
+conan graph lock .
 
-conan create  -l conan.lock -p $profile $args --ignore-dirty . mycompany/stable                   
+#conan create  -l conan.lock -p $profile $args --ignore-dirty . mycompany/stable                   
+conan create -p $profile $args --ignore-dirty . mycompany/stable                   
 
 popd

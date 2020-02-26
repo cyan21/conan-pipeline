@@ -29,4 +29,3 @@ conan profile list
 conan remote add $art_repo "${art_url}/api/conan/${art_repo}"
 conan user -p $art_apikey -r $art_repo $art_user
 
-conan profile update settings.compiler.libcxx=libstdc++11 default
