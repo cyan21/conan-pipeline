@@ -11,6 +11,7 @@ ARG build_number
 ARG component
 
 ENV CONAN_REVISIONS_ENABLED=1 
+ENV CONAN_USER_HOME=/tmp/conan/
 
 WORKDIR /tmp
 
