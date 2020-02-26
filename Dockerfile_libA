@@ -19,6 +19,8 @@ COPY scripts scripts/
 COPY config config/  
 COPY src src/
 
+RUN chmod -R 777 /tmp 
+
 #install remotes, profiles, global conf
 RUN ./scripts/config_project.sh -c $cfg_repo -a $artifactory -u $ci_user -k $apikey -r $art_repo
 
