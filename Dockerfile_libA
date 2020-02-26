@@ -30,4 +30,4 @@ RUN scripts/upload.sh -a $artifactory -k $apikey -r $art_repo -p "conanio-gcc7" 
 
 RUN scripts/generate_bi.sh -u $ci_user -k $apikey -i $build_name -n $build_number -o "gcc7-${build_name}.json" -l $component
 
-RUN scripts/merge_and_publish.sh -a $artifactory -u $ci_user -k $apikey -i $JOB_NAME 
+RUN scripts/merge_and_publish.sh -a $artifactory -u $ci_user -k $apikey -i $build_name 
