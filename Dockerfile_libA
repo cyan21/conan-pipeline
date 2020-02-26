@@ -10,6 +10,8 @@ ARG build_name
 ARG build_number
 ARG component
 
+ENV CONAN_REVISIONS_ENABLED=1 
+
 WORKDIR /tmp
 
 COPY scripts scripts/  
