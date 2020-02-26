@@ -28,7 +28,9 @@ cd $filepath
 #conan graph lock -p ${profile} .
 
 conan profile update settings.compiler.libcxx=libstdc++11 $profile 
-conan create  -l conan.lock -p $profile $args --ignore-dirty . mycompany/stable
+conan create  --lockfile . -p $profile $args --ignore-dirty . mycompany/stable
 #conan create -p $profile $args --ignore-dirty . mycompany/stable                   
+
+ls -l 
 
 popd
