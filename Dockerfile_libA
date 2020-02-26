@@ -18,9 +18,9 @@ WORKDIR /tmp
 
 COPY scripts scripts/  
 COPY config config/  
-COPY src src/
+#COPY src src/
 
-RUN whoami  
+#RUN whoami  
 
 #install remotes, profiles, global conf
 RUN ./scripts/config_project.sh -c $cfg_repo -a $artifactory -u $ci_user -k $apikey -r $art_repo
