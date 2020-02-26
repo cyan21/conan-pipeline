@@ -30,6 +30,6 @@ conan graph lock -p ${profile} .
 conan profile update settings.compiler.libcxx=libstdc++11 $profile 
 conan create  -p $profile $args --ignore-dirty . mycompany/stable
 
-ls -l 
+pwd && ls -l 
 
 popd
