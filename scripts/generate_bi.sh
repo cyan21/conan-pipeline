@@ -28,8 +28,7 @@ done
 
 # generate build info
 echo "conan_build_info --v2 create --lockfile $lockfile_path/conan.lock --user $art_user --password $art_apikey ${output_file}"
-conan_build_info --v2 create --lockfile $lockfile_path/conan.lock --user $art_user --password $art_apikey ${output_file}
-
+conan_build_info --v2 create ${output_file} --lockfile $lockfile_path/conan.lock --user $art_user --password $art_apikey 
 cat ${output_file}                        
 
 # remove Build Info props
