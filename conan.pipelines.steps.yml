@@ -6,7 +6,7 @@ pipelines:
         type: DockerBuild
         configuration:
           dockerFileLocation: . 
-          dockerFileName: Dockerfile_libA
+          dockerFileName: Dockerfile
           dockerImageName: docker-dev-local.artifactory-eu.soleng-emea-staging.jfrog.team/build-liba
           dockerImageTag: ${run_number}
           dockerOptions: --build-arg build_name=${pipeline_name}  --build-arg build_number=${run_number}  --build-arg artifactory=http://artifactory-eu.soleng-emea-staging.jfrog.team/artifactory  --build-arg ci_user=${int_artSecret_user}  --build-arg apikey=${int_artSecret_apikey} --build-arg cfg_repo='https://github.com/conan-ci-cd-training/settings.git'  --build-arg art_repo=winter-conan  --build-arg up_pattern=* --build-arg component=libA 
