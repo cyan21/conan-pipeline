@@ -31,5 +31,5 @@ conan_build_info --v2 create ${output_file} --lockfile $lockfile_path/conan.lock
 cat ${output_file}                        
 
 # remove Build Info props
-conan_build_info --v2 stop
+#conan_build_info --v2 stop
 
