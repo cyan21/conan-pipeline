@@ -34,4 +34,4 @@ conan user -p $art_apikey -r $art_repo $art_user
 # set Build Info properties
 conan_build_info --v2 start $build_id $build_num
 
-ls ${CONAN_USER_HOME}.conan/artifacts.properties && cat $CONAN_USER_HOME/artifacts.properties
+ls ${CONAN_USER_HOME}.conan/artifacts.properties && cat ${CONAN_USER_HOME}.conan/artifacts.properties
