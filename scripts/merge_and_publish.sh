@@ -30,3 +30,5 @@ cat ${build_id}.json
 
 # publish build info
 conan_build_info --v2 publish ${build_id}.json --url $art_url --user $art_user --password $art_apikey
+
+ls ${CONAN_USER_HOME}.conan/artifacts.properties && cat ${CONAN_USER_HOME}.conan/artifacts.properties

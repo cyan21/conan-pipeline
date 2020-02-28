@@ -26,6 +26,5 @@ done
 conan_build_info --v2 create ${output_file} --lockfile $lockfile_path/conan.lock --user $art_user --password $art_apikey 
 cat ${output_file}                        
 
-# remove Build Info props
-#conan_build_info --v2 stop
+ls ${CONAN_USER_HOME}.conan/artifacts.properties && cat ${CONAN_USER_HOME}.conan/artifacts.properties
 
