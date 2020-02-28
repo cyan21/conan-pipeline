@@ -24,7 +24,7 @@ RUN ./scripts/config_project.sh -c $cfg_repo -a $artifactory -u $ci_user -k $api
 
 RUN git clone https://github.com/conan-ci-cd-training/${component}.git 
 
-RUN scripts/create_pkg.sh -p "conanio-gcc7" -f $component
+RUN scripts/create_pkg.sh -p "conanio-gcc7" -f $component -i $build_name -n $build_number 
 
 RUN scripts/upload.sh -a $artifactory -k $apikey -r $art_repo -p "conanio-gcc7" -u "$up_pattern" -f $component 
 

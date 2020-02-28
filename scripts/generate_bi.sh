@@ -24,7 +24,7 @@ do
 done
 
 # set Build Info properties
-conan_build_info --v2 start $build_id $build_num
+#conan_build_info --v2 start $build_id $build_num
 
 # generate build info
 conan_build_info --v2 create ${output_file} --lockfile $lockfile_path/conan.lock --user $art_user --password $art_apikey 
