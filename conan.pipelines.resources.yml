@@ -8,9 +8,16 @@ resources:
         include: master 
       buildOn:
          commit: true
-  - name: libA_build_info
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: artifactory_eu
-      buildName: ${pipeline_name}   
-      buildNumber: ${run_number}
+#  - name: libA_build_info
+#    type: BuildInfo
+#    configuration:
+#      sourceArtifactory: artifactory_eu
+#      buildName: ${pipeline_name}   
+#      buildNumber: ${run_number}
+#  - name: aql_test_libA 
+#    type: FileSpec
+#    configuration:     
+#      sourceArtifactory:    artifactory_eu
+#      props: tested=ok
+#      buildName: ${pipeline_name}   
+#      buildNumber: ${run_number}
