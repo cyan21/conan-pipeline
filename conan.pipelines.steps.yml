@@ -22,7 +22,7 @@ pipelines:
       - name: TestlibA 
         type: Bash
         configuration:
-          inputStep:
+          inputSteps:
           - name: libA 
           outputResources:
           - name: libA_build_info 
