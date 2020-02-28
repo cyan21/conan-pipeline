@@ -24,7 +24,7 @@ pushd .
 
 cd $filepath 
 
-ls $CONAN_USER_HOME/artifacts.properties && cat $CONAN_USER_HOME/artifacts.properties
+ls ${CONAN_USER_HOME}.conan/artifacts.properties && cat $CONAN_USER_HOME/artifacts.properties
 
 # get dependency tree with versions
 conan graph lock -p ${profile} .
