@@ -28,6 +28,8 @@ pushd .
 
 cd $filepath 
 
+ls ${CONAN_USER_HOME}.conan/artifacts.properties && cat ${CONAN_USER_HOME}.conan/artifacts.properties
+
 conan upload "$regex" --all -r $art_repo --confirm --force
 
 name=$(conan inspect . --raw name)
