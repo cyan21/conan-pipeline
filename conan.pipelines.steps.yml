@@ -19,6 +19,8 @@ pipelines:
           onStart:
             - printenv int_artSecret_user
             - printenv int_artSecret_apikey
+          onSuccess: 
+            - conan --version 
       - name: TestlibA 
         type: Bash
         configuration:
