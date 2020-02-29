@@ -29,6 +29,11 @@ pipelines:
             - echo "Testing ..." 
           onSuccess:
             - echo "Adding props..." 
+            - curl -fL https://getcli.jfrog.io | sh &&  chmod 755 jfrog  
+            - ./jfrog rt c --interactive=false --url=$artifactory --user=${int_artSecret_user} --apikey=${int_artSecret_apikey} art7 && ./jfrog rt use art7 && ./jfrog rt ping
+            - curl -O https://raw.githubusercontent.com/cyan21/conan-pipeline/master/spec.json  
+            - sed -i s/<BUILD_NAME>/${pipelines_name}/ spec.json && sed -i s/<BUILD_NUMBER>/${run_number}/ spec.json && cat spec.json 
+            - ./jfrog rt sp "test=validated" --spec=spec.json
             - echo "Props Added !" 
 #      - name: libB 
 #        type: DockerBuild
