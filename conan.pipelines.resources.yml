@@ -18,4 +18,4 @@ resources:
     type: FileSpec 
     configuration:     
       sourceArtifactory: artifactory_eu
-      aql: "item.find({ \"repo\": \"winter-conan-dev-local\"})"
+      aql: "items.find({ \"repo\": \"winter-conan-dev-local\"})"
