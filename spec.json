@@ -2,8 +2,8 @@
   "files": [{
     "aql": {
       "items.find": {
-        "@build.name": "<BUILD_NAME>",
-        "@build.number": "<BUILD_NUMBER>"
+        "@build.name": "#BUILD_NAME#",
+        "@build.number": "#BUILD_NUMBER#"
         }
       }
   }]
