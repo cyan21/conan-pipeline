@@ -19,7 +19,7 @@ WORKDIR /tmp
 COPY scripts scripts/  
 COPY config config/  
 
-RUN curl -fL https://getcli.jfrog.io | sh &&  chmod 755 jfrog &&  mv jfrog /usr/local/bin/
+RUN curl -fL https://getcli.jfrog.io | sh &&  chmod 755 jfrog 
 
 RUN jfrog rt c --interactive=false --url=$artifactory --user=$ci_user --apikey=$apikey art7 && jfrog rt use art7 && jfrog rt ping
 
