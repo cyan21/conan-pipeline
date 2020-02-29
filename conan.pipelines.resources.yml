@@ -14,10 +14,8 @@ resources:
 #      sourceArtifactory: artifactory_eu
 #      buildName: ${pipeline_name}   
 #      buildNumber: ${run_number}
-#  - name: aql_test_libA 
-#    type: FileSpec
-#    configuration:     
-#      sourceArtifactory:    artifactory_eu
-#      props: tested=ok
-#      buildName: ${pipeline_name}   
-#      buildNumber: ${run_number}
+  - name: fspec_libA_ok 
+    type: FileSpec 
+    configuration:     
+      sourceArtifactory: artifactory_eu
+      aql: item.find({ "@build.name": "${pipeline_name}", "@build.number": "${run_number}", "@test":"validated"})

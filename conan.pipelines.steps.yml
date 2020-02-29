@@ -26,6 +26,8 @@ pipelines:
           - name: libA 
           integrations:
             - name: artSecret
+          outputResources:
+            - name: fspec_libA_ok 
         execution:
           onExecute:
             - echo "Testing ..." 
@@ -38,6 +40,14 @@ pipelines:
             - sed -i "s/#BUILD_NAME#/${pipeline_name}/" spec.json && sed -i "s/#BUILD_NUMBER#/${run_number}/" spec.json && cat spec.json 
             - ./jfrog rt sp "test=validated" --spec=spec.json
             - echo "Props Added !" 
+      - name: libB 
+        type: Bash
+        configuration:
+          inputResources:
+            - name: fspec_libA_ok 
+        execution:
+          onExecute:
+            - echo res_fspec_libA_ok_name
 #      - name: libB 
 #        type: DockerBuild
 #        configuration:
