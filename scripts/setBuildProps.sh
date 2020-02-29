@@ -40,5 +40,5 @@ echo "[INFO] Build properties succesfully applied to the export folder "
 # target package revision
 #echo "jfrog rt sp --exclude-patterns=\".timestamp\" ${repo}/${user}/${repo_path}/package/${path_prev} \"build.name=$build_id;build.number=$build_num\"" 
 
-${cli_path}/jfrog rt sp --exclude-patterns=".timestamp" ${repo}/${user}/${repo_path}/package/${path_prev}/ "build.name=$build_id;build.number=$build_num" 
+${cli_path}/jfrog rt sp --exclusions=".timestamp" ${repo}/${user}/${repo_path}/package/${path_prev}/ "build.name=$build_id;build.number=$build_num" 
 echo "[INFO] Build properties succesfully applied to the package revision"
