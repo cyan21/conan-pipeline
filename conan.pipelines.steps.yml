@@ -24,6 +24,8 @@ pipelines:
         configuration:
           inputSteps:
           - name: libA 
+          integrations:
+            - name: artSecret
         execution:
           onExecute:
             - echo "Testing ..." 
