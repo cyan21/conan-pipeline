@@ -21,7 +21,7 @@ COPY config config/
 
 RUN curl -fL https://getcli.jfrog.io | sh &&  chmod 755 jfrog 
 
-RUN jfrog rt c --interactive=false --url=$artifactory --user=$ci_user --apikey=$apikey art7 && jfrog rt use art7 && jfrog rt ping
+RUN ./jfrog rt c --interactive=false --url=$artifactory --user=$ci_user --apikey=$apikey art7 && ./jfrog rt use art7 && ./jfrog rt ping
 
 #install remotes, profiles, global conf
 RUN ./scripts/config_project.sh -c $cfg_repo -a $artifactory -u $ci_user -k $apikey -r $art_repo -i $build_name -n $build_number 
