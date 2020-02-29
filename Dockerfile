@@ -19,6 +19,10 @@ WORKDIR /tmp
 COPY scripts scripts/  
 COPY config config/  
 
+RUN curl -fL https://getcli.jfrog.io | sh &&  chmod 755 jfrog &&  mv jfrog /usr/local/bin/
+
+RUN jfrog rt c --interactive=false --url=$artifactory --user=$ci_user --apikey=$apikey art7 && jfrog rt use art7 && jfrog rt ping
+
 #install remotes, profiles, global conf
 RUN ./scripts/config_project.sh -c $cfg_repo -a $artifactory -u $ci_user -k $apikey -r $art_repo -i $build_name -n $build_number 
 
@@ -31,3 +35,7 @@ RUN scripts/upload.sh -a $artifactory -k $apikey -r $art_repo -p "conanio-gcc7" 
 RUN scripts/generate_bi.sh -u $ci_user -k $apikey -o "gcc7-${build_name}.json" -l $component
 
 RUN scripts/merge_and_publish.sh -a $artifactory -u $ci_user -k $apikey -i gcc7-${build_name} 
+
+# hack
+RUN scripts/setBuildProps.sh -i $build_name -n $build_number -l ${component}/conan.lock -r $art_repo
+
