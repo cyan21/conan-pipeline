@@ -2,7 +2,7 @@ apiVersion: v1.1
 pipelines:
   - name: Conan_App
     steps:
-      - name: libB 
+      - name: testing_fs
         type: Bash
         configuration:
           inputResources:
