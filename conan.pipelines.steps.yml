@@ -156,33 +156,33 @@ pipelines:
             - curl -O https://raw.githubusercontent.com/cyan21/conan-pipeline/master/spec.json  
             - cat spec.json  
             - sed -i "s/#BUILD_NAME#/cppApp/" spec.json && sed -i "s/#BUILD_NUMBER#/${run_number}/" spec.json && cat spec.json 
-      - name: promotion_to_UAT 
+      - name: promotion_to_prod 
         type: PromoteBuild 
         configuration:
-          targetRepository: avengers-generic-uat-local
+          targetRepository: winter-conan-prod-local
           includeDependencies: false
-          status: "SIT_OK"
-          comment: "Passed SIT test"
+          status: "Production_ready"
+          comment: "Passed tests"
           copy: false
           inputResources:
             - name: App_BuildInfo 
           outputResources:
-            - name: App_BuildInfo_SIT_ok 
+            - name: App_BuildInfo_prod_ok 
         execution:
           onSuccess:
-            - echo "Passed SIT test" 
-      - name: promotion_to_prod 
-        type: PromoteBuild 
-        configuration:
-          targetRepository: avengers-generic-prod-local
-          includeDependencies: false
-          status: "Production"
-          comment: "Passed UAT test"
-          copy: false
-          inputResources:
-            - name: App_BuildInfo_SIT_ok 
-          outputResources:
-            - name: App_BuildInfo_Prod_ok 
-        execution:
-          onSuccess:
-            - echo "Passed UAT test" 
+            - echo "Passed tests" 
+#      - name: promotion_to_prod 
+#        type: PromoteBuild 
+#        configuration:
+#          targetRepository: avengers-generic-prod-local
+#          includeDependencies: false
+#          status: "Production"
+#          comment: "Passed UAT test"
+#          copy: false
+#          inputResources:
+#            - name: App_BuildInfo_SIT_ok 
+#          outputResources:
+#            - name: App_BuildInfo_Prod_ok 
+#        execution:
+#          onSuccess:
+#            - echo "Passed UAT test" 

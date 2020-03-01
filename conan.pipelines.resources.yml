@@ -26,12 +26,12 @@ resources:
       sourceArtifactory: artifactory_eu
       buildName: cppApp 
       buildNumber: ${run_number} 
-  - name: App_BuildInfo_SIT_ok
-    type: BuildInfo 
-    configuration:
-      sourceArtifactory: artifactory_eu
-      buildName: cppApp 
-      buildNumber: ${run_number} 
+ # - name: App_BuildInfo_SIT_ok
+ #   type: BuildInfo 
+ #   configuration:
+ #     sourceArtifactory: artifactory_eu
+ #     buildName: cppApp 
+ #     buildNumber: ${run_number} 
   - name: App_BuildInfo_Prod_ok
     type: BuildInfo 
     configuration:
