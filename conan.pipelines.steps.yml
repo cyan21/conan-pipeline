@@ -33,7 +33,8 @@ pipelines:
           integrations:
             - name: artSecret
           outputResources:
-            - name: fspec_libA_ok 
+#            - name: fspec_libA_ok 
+            - name: aql_libA_ok 
         execution:
           onExecute:
             - echo "Testing ..." 
