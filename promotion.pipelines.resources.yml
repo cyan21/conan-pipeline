@@ -1,0 +1,7 @@
+resources:
+  - name: App_BuildInfo 
+    type: BuildInfo 
+    configuration:
+      sourceArtifactory: artifactory_eu
+      buildName: my-react-app 
+      buildNumber: 48 

@@ -1,0 +1,38 @@
+apiVersion: v1.1
+pipelines:
+  - name: Conan_promote
+    steps:
+      - name: promotion_to_UAT 
+        type: PromoteBuild 
+        configuration:
+          targetRepository: avengers-generic-uat-local
+          includeDependencies: false
+          status: "SIT_OK"
+          comment: "Passed SIT test"
+          copy: false
+          inputResources:
+            - name: App_BuildInfo 
+          outputResources:
+            - name: App_BuildInfo 
+        execution:
+          onExecute:
+            - echo "SIT Testing ..." 
+          onSuccess:
+            - echo "Passed SIT test" 
+      - name: promotion_to_prod 
+        type: PromoteBuild 
+        configuration:
+          targetRepository: avengers-generic-prod-local
+          includeDependencies: false
+          status: "Production"
+          comment: "Passed UAT test"
+          copy: false
+          inputResources:
+            - name: App_BuildInfo 
+          outputResources:
+            - name: App_BuildInfo 
+        execution:
+          onExecute:
+            - echo "UAT Testing ..." 
+          onSuccess:
+            - echo "Passed UAT test" 
