@@ -8,21 +8,13 @@ resources:
         include: master 
       buildOn:
          commit: true
-#  - name: libA_build_info
-#    type: BuildInfo
-#    configuration:
-#      sourceArtifactory: artifactory_eu
-#      buildName: ${pipeline_name}   
-#      buildNumber: ${run_number}
   - name: fspec_libA_ok
     type: FileSpec
     configuration:
       sourceArtifactory: artifactory_eu
-      pattern: winter-conan/mycompany/libA
-#      props: "build.name=${pipeline_name};build.number=${run_number};test=validated"
+      pattern: winter-conan/
   - name: fspec_libB_ok
     type: FileSpec
     configuration:
       sourceArtifactory: artifactory_eu
-      pattern: winter-conan/mycompany/libB
-#      props: "build.name=${pipeline_name};build.number=${run_number};test=validated"
+      pattern: winter-conan/company/libB
