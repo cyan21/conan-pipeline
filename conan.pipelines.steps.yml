@@ -156,7 +156,7 @@ pipelines:
             - curl -O https://raw.githubusercontent.com/cyan21/conan-pipeline/master/spec.json  
             - cat spec.json  
             - sed -i "s/#BUILD_NAME#/cppApp/" spec.json && sed -i "s/#BUILD_NUMBER#/${run_number}/" spec.json && cat spec.json 
-      - name:  
+      - name: link_Build_Info 
         type: Bash
         configuration:
           inputSteps:
