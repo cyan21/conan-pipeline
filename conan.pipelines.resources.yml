@@ -12,17 +12,17 @@ resources:
     type: FileSpec
     configuration:
       sourceArtifactory: artifactory_eu
-      pattern: winter-conan/mycompany/libA
+      pattern: winter-conan/libA/
 #  - name: fspec_libB_ok
 #    type: FileSpec
 #    configuration:
 #      sourceArtifactory: artifactory_eu
 #      pattern: winter-conan/mycompany/libB
-  - name: fspec_libC_ok
-    type: FileSpec
-    configuration:
-      sourceArtifactory: artifactory_eu
-      pattern: winter-conan/mycompany/libC
+#  - name: fspec_libC_ok
+#    type: FileSpec
+#    configuration:
+#      sourceArtifactory: artifactory_eu
+#      pattern: winter-conan/libC/
   - name: fspec_deps_ok
     type: FileSpec
     configuration:

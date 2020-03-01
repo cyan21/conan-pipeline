@@ -102,8 +102,8 @@ pipelines:
           - name: libC 
           integrations:
             - name: artSecret
-          outputResources:
-            - name: fspec_libC_ok 
+#          outputResources:
+#            - name: fspec_libC_ok 
         execution:
           onExecute:
             - echo "Testing ..." 
