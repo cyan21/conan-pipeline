@@ -78,3 +78,62 @@ pipelines:
             - cat spec.json  
             - sed -i "s/#BUILD_NAME#/libB/" spec.json && sed -i "s/#BUILD_NUMBER#/${run_number}/" spec.json && cat spec.json 
             - ./jfrog rt sp "test=validated" --spec=spec.json
+      - name: libC   
+        type: DockerBuild
+        configuration:
+          dockerFileLocation: . 
+          dockerFileName: Dockerfile
+          dockerImageName: docker-dev-local.artifactory-eu.soleng-emea-staging.jfrog.team/build-libc
+          dockerImageTag: ${run_number}
+          dockerOptions: --build-arg build_name=libC --build-arg build_number=${run_number}  --build-arg artifactory=http://artifactory-eu.soleng-emea-staging.jfrog.team/artifactory  --build-arg ci_user=${int_artSecret_user}  --build-arg apikey=${int_artSecret_apikey} --build-arg cfg_repo='https://github.com/conan-ci-cd-training/settings.git'  --build-arg art_repo=winter-conan  --build-arg up_pattern=* --build-arg component=libC
+          inputResources:
+            - name: conan_pipeline_src
+          integrations:
+            - name: registry_eu
+            - name: artSecret
+        execution:
+          onStart:
+            - printenv int_artSecret_user
+            - printenv int_artSecret_apikey
+      - name: TestlibC 
+        type: Bash
+        configuration:
+          inputSteps:
+          - name: libC 
+          integrations:
+            - name: artSecret
+          outputResources:
+            - name: fspec_libC_ok 
+        execution:
+          onExecute:
+            - echo "Testing ..." 
+          onSuccess:
+            - echo "Adding props..." 
+            - curl -fL https://getcli.jfrog.io | sh &&  chmod 755 jfrog  
+            - ./jfrog rt c --interactive=false --url=http://artifactory-eu.soleng-emea-staging.jfrog.team/artifactory --user=${int_artSecret_user} --apikey=${int_artSecret_apikey} art7 && ./jfrog rt use art7 && ./jfrog rt ping
+            - curl -O https://raw.githubusercontent.com/cyan21/conan-pipeline/master/spec.json  
+            - cat spec.json  
+            - sed -i "s/#BUILD_NAME#/libC/" spec.json && sed -i "s/#BUILD_NUMBER#/${run_number}/" spec.json && cat spec.json 
+            - ./jfrog rt sp "test=validated" --spec=spec.json
+      - name: cppApp   
+        type: DockerBuild
+        configuration:
+          dockerFileLocation: . 
+          dockerFileName: Dockerfile
+          dockerImageName: docker-dev-local.artifactory-eu.soleng-emea-staging.jfrog.team/build-cppapp
+          dockerImageTag: ${run_number}
+          dockerOptions: --build-arg build_name=cppApp --build-arg build_number=${run_number}  --build-arg artifactory=http://artifactory-eu.soleng-emea-staging.jfrog.team/artifactory  --build-arg ci_user=${int_artSecret_user}  --build-arg apikey=${int_artSecret_apikey} --build-arg cfg_repo='https://github.com/conan-ci-cd-training/settings.git'  --build-arg art_repo=winter-conan  --build-arg up_pattern=* --build-arg component=App
+          inputResources:
+            - name: conan_pipeline_src
+            - name: fspec_libB_ok 
+            - name: fspec_libC_ok 
+          integrations:
+            - name: registry_eu
+        execution:
+          onSuccess:
+            - echo "Adding props..." 
+            - curl -fL https://getcli.jfrog.io | sh &&  chmod 755 jfrog  
+            - ./jfrog rt c --interactive=false --url=http://artifactory-eu.soleng-emea-staging.jfrog.team/artifactory --user=${int_artSecret_user} --apikey=${int_artSecret_apikey} art7 && ./jfrog rt use art7 && ./jfrog rt ping
+            - curl -O https://raw.githubusercontent.com/cyan21/conan-pipeline/master/spec.json  
+            - cat spec.json  
+            - sed -i "s/#BUILD_NAME#/cppApp/" spec.json && sed -i "s/#BUILD_NUMBER#/${run_number}/" spec.json && cat spec.json 
