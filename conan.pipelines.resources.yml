@@ -8,23 +8,33 @@ resources:
         include: master 
       buildOn:
          commit: true
+
   - name: fspec_libA_ok
     type: FileSpec
     configuration:
       sourceArtifactory: artifactory_eu
       pattern: winter-conan/libA/
-#  - name: fspec_libB_ok
-#    type: FileSpec
-#    configuration:
-#      sourceArtifactory: artifactory_eu
-#      pattern: winter-conan/mycompany/libB
-#  - name: fspec_libC_ok
-#    type: FileSpec
-#    configuration:
-#      sourceArtifactory: artifactory_eu
-#      pattern: winter-conan/libC/
   - name: fspec_deps_ok
     type: FileSpec
     configuration:
       sourceArtifactory: artifactory_eu
       pattern: winter-conan/libB/
+
+  - name: App_BuildInfo 
+    type: BuildInfo 
+    configuration:
+      sourceArtifactory: artifactory_eu
+      buildName: cppApp 
+      buildNumber: ${run_number} 
+  - name: App_BuildInfo_SIT_ok
+    type: BuildInfo 
+    configuration:
+      sourceArtifactory: artifactory_eu
+      buildName: cppApp 
+      buildNumber: ${run_number} 
+  - name: App_BuildInfo_Prod_ok
+    type: BuildInfo 
+    configuration:
+      sourceArtifactory: artifactory_eu
+      buildName: cppApp 
+      buildNumber: ${run_number} 
