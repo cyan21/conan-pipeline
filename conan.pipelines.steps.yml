@@ -3,9 +3,10 @@ pipelines:
   - name: Conan_App
     configuration:
       environmentVariables:
-        art_url: http://artifactory-eu.soleng-emea-staging.jfrog.team/artifactory
-        art_repo: winter-conan
-        config_url: https://github.com/conan-ci-cd-training/settings.git
+        readOnly:
+          art_url: http://artifactory-eu.soleng-emea-staging.jfrog.team/artifactory
+          art_repo: winter-conan
+          config_url: https://github.com/conan-ci-cd-training/settings.git
     steps:
       - name: libA   
         type: DockerBuild
