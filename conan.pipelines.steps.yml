@@ -115,6 +115,16 @@ pipelines:
             - cat spec.json  
             - sed -i "s/#BUILD_NAME#/libC/" spec.json && sed -i "s/#BUILD_NUMBER#/${run_number}/" spec.json && cat spec.json 
             - ./jfrog rt sp "test=validated" --spec=spec.json
+      - name: TestlibC 
+        type: Bash
+        configuration:
+          inputSteps:
+          - name: libB 
+          - name: libC 
+          integrations:
+            - name: artSecret
+          outputResources:
+            - name: fspec_deps_ok 
       - name: cppApp   
         type: DockerBuild
         configuration:
@@ -125,8 +135,7 @@ pipelines:
           dockerOptions: --build-arg build_name=cppApp --build-arg build_number=${run_number}  --build-arg artifactory=http://artifactory-eu.soleng-emea-staging.jfrog.team/artifactory  --build-arg ci_user=${int_artSecret_user}  --build-arg apikey=${int_artSecret_apikey} --build-arg cfg_repo='https://github.com/conan-ci-cd-training/settings.git'  --build-arg art_repo=winter-conan  --build-arg up_pattern=* --build-arg component=App
           inputResources:
             - name: conan_pipeline_src
-            - name: fspec_libB_ok 
-            - name: fspec_libC_ok 
+            - name: fspec_deps_ok 
           integrations:
             - name: registry_eu
         execution:

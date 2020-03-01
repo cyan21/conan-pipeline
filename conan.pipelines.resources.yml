@@ -23,3 +23,8 @@ resources:
     configuration:
       sourceArtifactory: artifactory_eu
       pattern: winter-conan/company/libC
+  - name: fspec_deps_ok
+    type: FileSpec
+    configuration:
+      sourceArtifactory: artifactory_eu
+      pattern: winter-conan/company/App
