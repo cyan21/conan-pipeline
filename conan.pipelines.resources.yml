@@ -27,4 +27,4 @@ resources:
     type: FileSpec
     configuration:
       sourceArtifactory: artifactory_eu
-      pattern: winter-conan/company/App
+      pattern: winter-conan/App/libB/
