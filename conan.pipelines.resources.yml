@@ -20,3 +20,9 @@ resources:
       sourceArtifactory: artifactory_eu
         pattern: winter-conan
         props: "build.name=test;build.number=1;test=validated"
+  - name: fspec_libB_ok
+    type: FileSpec
+    configuration:
+      sourceArtifactory: artifactory_eu
+        pattern: winter-conan
+        props: "build.name=test;build.number=1;test=validated"
