@@ -14,9 +14,9 @@ resources:
 #      sourceArtifactory: artifactory_eu
 #      buildName: ${pipeline_name}   
 #      buildNumber: ${run_number}
-  - name: fspec_libA_ok 
-    type: FileSpec 
-    configuration:     
+  - name: fspec_libA_ok
+    type: FileSpec
+    configuration:
       sourceArtifactory: artifactory_eu
         buildName: toto
         buildNumber: 1
