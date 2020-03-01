@@ -115,7 +115,7 @@ pipelines:
             - cat spec.json  
             - sed -i "s/#BUILD_NAME#/libC/" spec.json && sed -i "s/#BUILD_NUMBER#/${run_number}/" spec.json && cat spec.json 
             - ./jfrog rt sp "test=validated" --spec=spec.json
-      - name: TestlibC 
+      - name: syncDeps 
         type: Bash
         configuration:
           inputSteps:
