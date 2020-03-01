@@ -140,6 +140,7 @@ pipelines:
             - name: conan_pipeline_src
             - name: fspec_deps_ok 
           integrations:
+            - name: artSecret
             - name: registry_eu
         execution:
           onSuccess:
