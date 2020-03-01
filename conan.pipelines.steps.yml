@@ -9,7 +9,7 @@ pipelines:
             - name: fspec_libA_ok 
         execution:
           onExecute:
-            - echo res_fspec_libA_ok_name
+            - echo ${res_fspec_libA_ok_name}
 #      - name: libB 
 #        type: DockerBuild
 #        configuration:
