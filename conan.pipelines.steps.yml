@@ -119,8 +119,8 @@ pipelines:
         type: Bash
         configuration:
           inputSteps:
-          - name: libB 
-          - name: libC 
+          - name: TestlibB 
+          - name: TestlibC 
           integrations:
             - name: artSecret
           outputResources:
