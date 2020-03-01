@@ -20,6 +20,6 @@ resources:
       sourceArtifactory: artifactory_eu
 #      aql: 'items.find({ "repo":"winter-conan-dev-local"})'
         pattern: winter-conan
-        buildName: toto 
-        buildNumber: 1 
+        buildName: toto
+        buildNumber: 1
 #        props: "build.name=${pipeline_name};build.number=${run_number};test=validated"
