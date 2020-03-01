@@ -165,6 +165,7 @@ pipelines:
             - name: App_BuildInfo  
         execution:
           onSuccess:
+            - echo "Passed tests" 
       - name: promotion_to_prod 
         type: PromoteBuild 
         configuration:
