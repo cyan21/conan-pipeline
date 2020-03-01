@@ -32,7 +32,7 @@ resources:
  #     sourceArtifactory: artifactory_eu
  #     buildName: cppApp 
  #     buildNumber: ${run_number} 
-  - name: App_BuildInfo_Prod_ok
+  - name: App_BuildInfo_prod_ok
     type: BuildInfo 
     configuration:
       sourceArtifactory: artifactory_eu
