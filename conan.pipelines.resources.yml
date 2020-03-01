@@ -18,10 +18,11 @@ resources:
     type: FileSpec
     configuration:
       sourceArtifactory: artifactory_eu
-      pattern: winter-conan/
-      props: "build.name=test;build.number=1;test=validated"
+      pattern: winter-conan/mycompany/libA
+      props: "build.name=${pipeline_name};build.number=${run_number};test=validated"
   - name: fspec_libB_ok
     type: FileSpec
     configuration:
       sourceArtifactory: artifactory_eu
-      pattern: winter-conan/
+      pattern: winter-conan/mycompany/libB
+      props: "build.name=${pipeline_name};build.number=${run_number};test=validated"
