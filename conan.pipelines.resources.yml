@@ -19,5 +19,4 @@ resources:
     configuration:
       sourceArtifactory: artifactory_eu
         pattern: winter-conan
-        buildName: toto
-        buildNumber: 1
+        props: "build.name=test;build.number=1;test=validated"
