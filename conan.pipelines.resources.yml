@@ -18,5 +18,6 @@ resources:
     type: FileSpec
     configuration:
       sourceArtifactory: artifactory_eu
+        pattern: winter-conan
         buildName: toto
         buildNumber: 1
