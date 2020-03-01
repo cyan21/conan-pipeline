@@ -38,3 +38,15 @@ resources:
       sourceArtifactory: artifactory_eu
       buildName: cppApp 
       buildNumber: ${run_number} 
+
+  - name: aql_libA_ok
+    type: Aql
+    configuration:
+      sourceArtifactory: artifactory_eu 
+      query: > 
+        items.find({
+        "$and": [
+        {"@build.name": "libA"},
+        {"@build.number": "2"}
+        ]
+        })

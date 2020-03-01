@@ -56,7 +56,8 @@ pipelines:
           dockerOptions: --build-arg build_name=libB --build-arg build_number=${run_number}  --build-arg artifactory=${art_url} --build-arg ci_user=${int_artSecret_user}  --build-arg apikey=${int_artSecret_apikey} --build-arg cfg_repo=${config_url}  --build-arg art_repo=${art_repo}  --build-arg up_pattern=* --build-arg component=libB 
           inputResources:
             - name: conan_pipeline_src
-            - name: fspec_libA_ok 
+#            - name: fspec_libA_ok 
+            - name: aql_libA_ok 
           integrations:
             - name: registry_eu
             - name: artSecret
