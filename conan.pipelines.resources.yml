@@ -47,6 +47,6 @@ resources:
         items.find({
         "$and": [
         {"@build.name": "libA"},
-        {"@build.number": "2"}
+        {"@build.number": "${run_number}"}
         ]
         })
