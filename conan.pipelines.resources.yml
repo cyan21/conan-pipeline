@@ -19,4 +19,5 @@ resources:
     configuration:     
       sourceArtifactory: artifactory_eu
 #      aql: 'items.find({ "repo":"winter-conan-dev-local"})'
-      pattern: winter-conan-dev-local/
+       pattern: winter-conan/
+       props: "build.name=${pipeline_name};build.number=${run_number};test=validated"
