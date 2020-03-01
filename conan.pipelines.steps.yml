@@ -125,6 +125,9 @@ pipelines:
             - name: artSecret
           outputResources:
             - name: fspec_deps_ok 
+        execution:
+          onSuccess:
+            - echo "Alright !!" 
       - name: cppApp   
         type: DockerBuild
         configuration:
