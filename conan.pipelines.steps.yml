@@ -71,8 +71,6 @@ pipelines:
           - name: libB 
           integrations:
             - name: artSecret
-#          outputResources:
-#            - name: fspec_libB_ok 
         execution:
           onExecute:
             - echo "Testing ..." 
@@ -108,8 +106,6 @@ pipelines:
           - name: libC 
           integrations:
             - name: artSecret
-#          outputResources:
-#            - name: fspec_libC_ok 
         execution:
           onExecute:
             - echo "Testing ..." 
@@ -181,18 +177,3 @@ pipelines:
         execution:
           onSuccess:
             - echo "Passed tests" 
-#      - name: promotion_to_prod 
-#        type: PromoteBuild 
-#        configuration:
-#          targetRepository: avengers-generic-prod-local
-#          includeDependencies: false
-#          status: "Production"
-#          comment: "Passed UAT test"
-#          copy: false
-#          inputResources:
-#            - name: App_BuildInfo_SIT_ok 
-#          outputResources:
-#            - name: App_BuildInfo_Prod_ok 
-#        execution:
-#          onSuccess:
-#            - echo "Passed UAT test" 
