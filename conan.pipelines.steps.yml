@@ -192,7 +192,7 @@ pipelines:
         type: CreateReleaseBundle 
         configuration:
           releaseBundleName: myApp 
-          releaseBundleVersion: 1.0.0-${run_mber} 
+          releaseBundleVersion: 1.0.0-${run_number} 
           dryRun: false
           sign: true 
           description: automatic creation 
