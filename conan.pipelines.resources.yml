@@ -9,11 +9,7 @@ resources:
       buildOn:
          commit: true
 
-  - name: fspec_libA_ok
-    type: FileSpec
-    configuration:
-      sourceArtifactory: artifactory_eu
-      pattern: winter-conan/libA/
+# hack, for triggering App build after libB and libC are finished 
   - name: fspec_deps_ok
     type: FileSpec
     configuration:
@@ -47,6 +43,22 @@ resources:
         items.find({
         "$and": [
         {"@build.name": "libA"},
-        {"@build.number": "999"}
+        {"@build.number": "${run_number}"}
         ]
         })
+
+  - name: myApp_RB 
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: distribution
+      name: myApp  
+      version: 0.0.1 # will be overriden by the createBundle step 
+  - name: myApp_distributionRule 
+    type: DistributionRule
+    configuration:
+      sourceDistribution: distribution
+      serviceName: "*"         
+      siteName: "*"
+      cityName: "Shanghai"
+      countryCodes:
+        - "*"

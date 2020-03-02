@@ -179,3 +179,35 @@ pipelines:
         execution:
           onSuccess:
             - echo "Passed tests" 
+
+######################################################
+#
+      - name: init_release_bundle
+        type: CreateReleaseBundle 
+        configuration:
+          releaseBundleName: myApp 
+          releaseBundleVersion: 0.0.3 
+          dryRun: false
+          sign: true 
+          description: automatic creation 
+          releaseNotes:
+            syntax: markdown
+            content: |
+              # Description 
+              super release 
+              * Feature 1 
+              * Bigfix 1
+          inputResources:
+            - name: myApp_BuildInfo_prod_ok 
+          outputResources:
+            - name: myApp_RB 
+
+      - name: distribute_myApp
+        type: DistributeReleaseBundle
+        configuration:
+          dryRun: false 
+          inputResources:
+            - name: myApp_RB 
+              trigger: true   
+            - name: myApp_distributionRule
+              trigger: false    # default true
