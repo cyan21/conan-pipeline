@@ -70,7 +70,9 @@ pipelines:
         type: Bash
         configuration:
           inputSteps:
-          - name: libB 
+            - name: libB 
+          outputResources:
+            - name: aql_libB_ok 
           integrations:
             - name: artSecret
         execution:
@@ -105,7 +107,9 @@ pipelines:
         type: Bash
         configuration:
           inputSteps:
-          - name: libC 
+            - name: libC 
+          outputResources:
+            - name: aql_libC_ok 
           integrations:
             - name: artSecret
         execution:
@@ -119,19 +123,19 @@ pipelines:
             - cat spec.json  
             - sed -i "s/#BUILD_NAME#/libC/" spec.json && sed -i "s/#BUILD_NUMBER#/${run_number}/" spec.json && cat spec.json 
             - ./jfrog rt sp "test=validated" --spec=spec.json
-      - name: syncDeps 
-        type: Bash
-        configuration:
-          inputSteps:
-          - name: TestlibB 
-          - name: TestlibC 
-          integrations:
-            - name: artSecret
-          outputResources:
-            - name: fspec_deps_ok 
-        execution:
-          onSuccess:
-            - echo "Alright !!" 
+#      - name: syncDeps 
+#        type: Bash
+#        configuration:
+#          inputSteps:
+#          - name: TestlibB 
+#          - name: TestlibC 
+#          integrations:
+#            - name: artSecret
+#          outputResources:
+#            - name: fspec_deps_ok 
+#        execution:
+#          onSuccess:
+#            - echo "Alright !!" 
       - name: cppApp   
         type: DockerBuild
         configuration:
@@ -142,7 +146,9 @@ pipelines:
           dockerOptions: --build-arg build_name=cppApp --build-arg build_number=${run_number}  --build-arg artifactory=${art_url}  --build-arg ci_user=${int_artSecret_user}  --build-arg apikey=${int_artSecret_apikey} --build-arg cfg_repo=${config_url}  --build-arg art_repo=${art_repo}  --build-arg up_pattern=* --build-arg component=App
           inputResources:
             - name: conan_pipeline_src
-            - name: fspec_deps_ok 
+#            - name: fspec_deps_ok 
+            - name: aql_libB_ok
+            - name: aql_libC_ok
           integrations:
             - name: artSecret
             - name: registry_eu

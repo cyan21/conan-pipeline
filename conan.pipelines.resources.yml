@@ -47,6 +47,30 @@ resources:
         ]
         })
 
+  - name: aql_libB_ok
+    type: Aql
+    configuration:
+      sourceArtifactory: artifactory_eu 
+      query: > 
+        items.find({
+        "$and": [
+        {"@build.name": "libB"},
+        {"@build.number": "${run_number}"}
+        ]
+        })
+
+  - name: aql_libC_ok
+    type: Aql
+    configuration:
+      sourceArtifactory: artifactory_eu 
+      query: > 
+        items.find({
+        "$and": [
+        {"@build.name": "libC"},
+        {"@build.number": "${run_number}"}
+        ]
+        })
+
 ######################################################
 
   - name: App_RB 
