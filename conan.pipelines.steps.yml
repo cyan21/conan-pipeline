@@ -198,16 +198,16 @@ pipelines:
               * Feature 1 
               * Bigfix 1
           inputResources:
-            - name: myApp_BuildInfo_prod_ok 
+            - name: App_BuildInfo_prod_ok 
           outputResources:
-            - name: myApp_RB 
+            - name: App_RB 
 
-      - name: distribute_myApp
+      - name: distribute_App
         type: DistributeReleaseBundle
         configuration:
           dryRun: false 
           inputResources:
-            - name: myApp_RB 
+            - name: App_RB 
               trigger: true   
-            - name: myApp_distributionRule
+            - name: App_distributionRule
               trigger: false    # default true

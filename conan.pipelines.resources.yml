@@ -47,13 +47,16 @@ resources:
         ]
         })
 
-  - name: myApp_RB 
+######################################################
+
+  - name: App_RB 
     type: ReleaseBundle
     configuration:
       sourceDistribution: distribution
       name: myApp  
       version: 0.0.1 # will be overriden by the createBundle step 
-  - name: myApp_distributionRule 
+
+  - name: App_distributionRule 
     type: DistributionRule
     configuration:
       sourceDistribution: distribution
